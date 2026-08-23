@@ -387,20 +387,6 @@ CUSTOM_CSS = """
 
     .begin-spacer { height: 1rem; }
 
-    .estimate-card {
-        display: flex;
-        align-items: center;
-        gap: 0.55rem;
-        min-height: 61.5px;
-        padding: 0 1rem;
-        border: 1px solid #B8C8DF;
-        border-radius: 13px;
-        background: #E9EFF8;
-        color: var(--ink);
-    }
-
-    .estimate-card strong { color: var(--ud-blue); }
-
     [data-testid="stHeaderActionElements"] {
         display: none !important;
     }
@@ -579,24 +565,16 @@ def render_welcome() -> None:
         unsafe_allow_html=True,
     )
 
-    left, right = st.columns([1.35, 1], gap="large")
-    with left:
-        st.markdown("### Your assignment")
-        st.write(
-            "Work through the filing in order. Each round introduces a short business "
-            "situation using straightforward transactions and reporting decisions."
-        )
-        st.markdown(
-            "- Choose the best response before seeing feedback.\n"
-            "- Watch the five reporting gauges change with your decisions.\n"
-            "- Use the final screen to review your complete decision trail."
-        )
-    with right:
-        st.markdown(
-            '<div class="estimate-card"><strong>Estimated time:</strong> '
-            '<span>12–15 minutes</span></div>',
-            unsafe_allow_html=True,
-        )
+    st.markdown("### Your assignment")
+    st.write(
+        "Work through the filing in order. Each round introduces a short business "
+        "situation using straightforward transactions and reporting decisions."
+    )
+    st.markdown(
+        "- Choose the best response before seeing feedback.\n"
+        "- Watch the five reporting gauges change with your decisions.\n"
+        "- Use the final screen to review your complete decision trail."
+    )
 
     st.markdown('<div class="begin-spacer"></div>', unsafe_allow_html=True)
     if st.button("Begin the filing review", type="primary", use_container_width=True):
