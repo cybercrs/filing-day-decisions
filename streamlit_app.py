@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import html
-import random
+import secrets
 
 import streamlit as st
 
@@ -14,6 +14,18 @@ from app.engine import (
     apply_results,
     evaluate_question,
     summarize_results,
+)
+from app.progress import (
+    QUERY_PARAM_NAME,
+    QUESTION_BY_ID,
+    SNAPSHOT_VERSION,
+    SnapshotError,
+    create_option_order,
+    decode_snapshot,
+    encode_snapshot,
+    hydrate_snapshot,
+    new_activity_snapshot,
+    welcome_snapshot,
 )
 
 
@@ -457,7 +469,7 @@ def safe(text: object) -> str:
 
 
 def scroll_to_top(transition_token: str) -> None:
-    """Place each new activity screen at its introduction after a rerun."""
+    """Place each new activity screen at its introduction after a transition."""
     st.html(
         f"""
         <script>
@@ -485,46 +497,105 @@ def scroll_to_top(transition_token: str) -> None:
 
 
 def initialize_state() -> None:
-    defaults = {
-        "screen": "welcome",
-        "round_index": 0,
-        "round_submitted": False,
-        "responses": [],
-        "metrics": dict(STARTING_METRICS),
-        "option_order": {},
-        "round_baselines": {},
-        "revealed_answers": {},
+    if st.session_state.get("_progress_initialized", False):
+        return
+
+    restored_state = None
+    saved_token = st.query_params.get(QUERY_PARAM_NAME)
+    if saved_token:
+        try:
+            restored_state = hydrate_snapshot(decode_snapshot(saved_token))
+        except SnapshotError:
+            del st.query_params[QUERY_PARAM_NAME]
+
+    if restored_state is None:
+        seed = secrets.randbits(32)
+        restored_state = hydrate_snapshot(welcome_snapshot(seed))
+
+    widget_answers = restored_state.pop("widget_answers")
+    for key, value in restored_state.items():
+        st.session_state[key] = value
+    for key, value in widget_answers.items():
+        st.session_state[key] = value
+    st.session_state.validation_warning = False
+    st.session_state._progress_initialized = True
+
+
+def current_snapshot() -> dict[str, object]:
+    """Build a compactable snapshot from the current non-identifying state."""
+    choices = dict(st.session_state.saved_choices)
+    for question_id, question in QUESTION_BY_ID.items():
+        selected_text = st.session_state.get(f"answer-{question_id}")
+        if selected_text is None:
+            continue
+        option_texts = [option["text"] for option in question["options"]]
+        if selected_text in option_texts:
+            choices[question_id] = option_texts.index(selected_text)
+    st.session_state.saved_choices = choices
+
+    results = {
+        result["question_id"]: result["selected_index"]
+        for result in st.session_state.responses
     }
-    for key, value in defaults.items():
-        if key not in st.session_state:
-            st.session_state[key] = value
-    if not st.session_state.option_order:
-        st.session_state.option_order = create_option_order()
-
-
-def create_option_order() -> dict[str, list[int]]:
-    """Randomize answer placement without changing the underlying scoring data."""
     return {
-        question["id"]: random.sample(
-            range(len(question["options"])), k=len(question["options"])
-        )
-        for round_data in ROUNDS
-        for question in round_data["questions"]
+        "version": SNAPSHOT_VERSION,
+        "page": st.session_state.screen,
+        "round_index": st.session_state.round_index,
+        "round_submitted": st.session_state.round_submitted,
+        "choices": choices,
+        "results": results,
+        "complete": st.session_state.screen == "debrief",
+        "order_seed": st.session_state.order_seed,
+        "revealed": [
+            slug
+            for slug, revealed in st.session_state.revealed_answers.items()
+            if revealed
+        ],
     }
+
+
+def persist_progress() -> None:
+    """Replace the saved query-parameter snapshot when progress changes."""
+    token = encode_snapshot(current_snapshot())
+    if st.query_params.get(QUERY_PARAM_NAME) != token:
+        st.query_params[QUERY_PARAM_NAME] = token
 
 
 def reset_activity() -> None:
-    st.session_state.screen = "round"
-    st.session_state.round_index = 0
-    st.session_state.round_submitted = False
-    st.session_state.responses = []
-    st.session_state.metrics = dict(STARTING_METRICS)
-    st.session_state.option_order = create_option_order()
-    st.session_state.round_baselines = {}
-    st.session_state.revealed_answers = {}
     for key in list(st.session_state):
         if key.startswith("answer-"):
             del st.session_state[key]
+    restored_state = hydrate_snapshot(new_activity_snapshot(secrets.randbits(32)))
+    restored_state.pop("widget_answers")
+    for key, value in restored_state.items():
+        st.session_state[key] = value
+    st.session_state.validation_warning = False
+    persist_progress()
+
+
+def record_choice(question_id: str) -> None:
+    question = QUESTION_BY_ID[question_id]
+    selected_text = st.session_state.get(f"answer-{question_id}")
+    option_texts = [option["text"] for option in question["options"]]
+    if selected_text in option_texts:
+        st.session_state.saved_choices[question_id] = option_texts.index(selected_text)
+    st.session_state.validation_warning = False
+    persist_progress()
+
+
+def reveal_answer(slug: str) -> None:
+    st.session_state.revealed_answers[slug] = True
+    persist_progress()
+
+
+def advance_round() -> None:
+    if st.session_state.round_index == len(ROUNDS) - 1:
+        st.session_state.screen = "debrief"
+    else:
+        st.session_state.round_index += 1
+        st.session_state.round_submitted = False
+    st.session_state.validation_warning = False
+    persist_progress()
 
 
 def render_welcome() -> None:
@@ -577,9 +648,12 @@ def render_welcome() -> None:
     )
 
     st.markdown('<div class="begin-spacer"></div>', unsafe_allow_html=True)
-    if st.button("Begin the filing review", type="primary", use_container_width=True):
-        reset_activity()
-        st.rerun()
+    st.button(
+        "Begin the filing review",
+        type="primary",
+        use_container_width=True,
+        on_click=reset_activity,
+    )
 
 
 def render_round_progress(current_index: int) -> None:
@@ -649,16 +723,18 @@ def render_metrics(
         )
 
 
-def submit_round(round_data: dict[str, object], selections: list[str | None]) -> None:
+def submit_round(round_data: dict[str, object]) -> None:
     questions = round_data["questions"]
-    if any(selection is None for selection in selections):
-        st.warning("Make a decision for every item before submitting this round.")
+    if any(
+        question["id"] not in st.session_state.saved_choices
+        for question in questions
+    ):
+        st.session_state.validation_warning = True
         return
 
     results = []
-    for question, selection in zip(questions, selections):
-        option_texts = [option_data["text"] for option_data in question["options"]]
-        selected_index = option_texts.index(selection)
+    for question in questions:
+        selected_index = st.session_state.saved_choices[question["id"]]
         result = evaluate_question(question, selected_index)
         result["round_slug"] = round_data["slug"]
         result["round_title"] = round_data["title"]
@@ -670,7 +746,8 @@ def submit_round(round_data: dict[str, object], selections: list[str | None]) ->
     st.session_state.round_baselines[round_data["slug"]] = baseline
     st.session_state.metrics = updated_metrics
     st.session_state.round_submitted = True
-    st.rerun()
+    st.session_state.validation_warning = False
+    persist_progress()
 
 
 def render_feedback(round_data: dict[str, object]) -> None:
@@ -716,8 +793,13 @@ def render_feedback(round_data: dict[str, object]) -> None:
     )
     slug = round_data["slug"]
     if not st.session_state.revealed_answers.get(slug, False):
-        if st.button("Reveal answer", key=f"reveal-{slug}", use_container_width=True):
-            st.session_state.revealed_answers[slug] = True
+        st.button(
+            "Reveal answer",
+            key=f"reveal-{slug}",
+            use_container_width=True,
+            on_click=reveal_answer,
+            args=(slug,),
+        )
     if st.session_state.revealed_answers.get(slug, False):
         st.markdown(
             f'<div class="revealed-answer">{safe(round_data["reflection_answer"])}</div>',
@@ -732,13 +814,12 @@ def render_feedback(round_data: dict[str, object]) -> None:
 
     is_last = st.session_state.round_index == len(ROUNDS) - 1
     label = "Open the final review" if is_last else "Continue to the next round"
-    if st.button(label, type="primary", use_container_width=True):
-        if is_last:
-            st.session_state.screen = "debrief"
-        else:
-            st.session_state.round_index += 1
-            st.session_state.round_submitted = False
-        st.rerun()
+    st.button(
+        label,
+        type="primary",
+        use_container_width=True,
+        on_click=advance_round,
+    )
 
 
 def render_round() -> None:
@@ -766,50 +847,52 @@ def render_round() -> None:
     render_metrics(st.session_state.metrics)
     st.markdown("### Decision file")
 
-    selections: list[str | None] = []
-    with st.form(f"round-form-{round_data['slug']}", clear_on_submit=False):
-        for index, question in enumerate(round_data["questions"], start=1):
-            disclosure_html = ""
-            if "draft_paragraph" in question:
-                disclosure_html = (
-                    '<div class="disclosure-panel">'
-                    '<span class="disclosure-label">Draft disclosure</span>'
-                    f'<p class="disclosure-text">{safe(question["draft_paragraph"])}</p>'
-                    '<div class="fact-block">'
-                    '<span class="disclosure-label">Fact</span>'
-                    f'<p class="disclosure-text">{safe(question["fact"])}</p>'
-                    '</div>'
-                    '</div>'
-                )
-            question_html = (
-                '<div class="question-card">'
-                f'<p class="question-number">Decision {index}</p>'
-                f'{disclosure_html}'
-                f'<p class="question-prompt">{safe(question["prompt"])}</p>'
+    for index, question in enumerate(round_data["questions"], start=1):
+        disclosure_html = ""
+        if "draft_paragraph" in question:
+            disclosure_html = (
+                '<div class="disclosure-panel">'
+                '<span class="disclosure-label">Draft disclosure</span>'
+                f'<p class="disclosure-text">{safe(question["draft_paragraph"])}</p>'
+                '<div class="fact-block">'
+                '<span class="disclosure-label">Fact</span>'
+                f'<p class="disclosure-text">{safe(question["fact"])}</p>'
+                '</div>'
                 '</div>'
             )
-            st.markdown(
-                question_html,
-                unsafe_allow_html=True,
-            )
-            selection = st.radio(
-                f"Decision {index}",
-                options=[
-                    question["options"][option_index]["text"]
-                    for option_index in st.session_state.option_order[question["id"]]
-                ],
-                index=None,
-                key=f"answer-{question['id']}",
-                label_visibility="collapsed",
-            )
-            selections.append(selection)
-
-        submitted = st.form_submit_button(
-            "Submit this round", type="primary", use_container_width=True
+        question_html = (
+            '<div class="question-card">'
+            f'<p class="question-number">Decision {index}</p>'
+            f'{disclosure_html}'
+            f'<p class="question-prompt">{safe(question["prompt"])}</p>'
+            '</div>'
+        )
+        st.markdown(
+            question_html,
+            unsafe_allow_html=True,
+        )
+        st.radio(
+            f"Decision {index}",
+            options=[
+                question["options"][option_index]["text"]
+                for option_index in st.session_state.option_order[question["id"]]
+            ],
+            index=None,
+            key=f"answer-{question['id']}",
+            label_visibility="collapsed",
+            on_change=record_choice,
+            args=(question["id"],),
         )
 
-    if submitted:
-        submit_round(round_data, selections)
+    if st.session_state.validation_warning:
+        st.warning("Make a decision for every item before submitting this round.")
+    st.button(
+        "Submit this round",
+        type="primary",
+        use_container_width=True,
+        on_click=submit_round,
+        args=(round_data,),
+    )
 
 
 def render_debrief() -> None:
@@ -868,9 +951,7 @@ def render_debrief() -> None:
                     st.write(f"Stronger choice: {result['correct_text']}")
                 st.caption(f"{result['concept']} · {result['explanation']}")
 
-    if st.button("Start a new filing review", use_container_width=True):
-        reset_activity()
-        st.rerun()
+    st.button("Start over", use_container_width=True, on_click=reset_activity)
 
 
 initialize_state()
@@ -881,3 +962,5 @@ elif st.session_state.screen == "round":
     render_round()
 else:
     render_debrief()
+
+persist_progress()
