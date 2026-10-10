@@ -1,0 +1,26 @@
+test_six_rounds_and_no_new_reveals_on_review (test_browser_flow.CompleteBrowserLessonTests.test_six_rounds_and_no_new_reveals_on_review) ... 2026-10-10 16:10:57.750 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_move_changes_only_view (test_browser_navigation.BrowserNavigationTests.test_move_changes_only_view) ... ok
+test_review_refresh_and_future_view (test_browser_navigation.BrowserNavigationTests.test_review_refresh_and_future_view) ... 2026-10-10 16:11:00.024 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-10 16:11:00.546 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_all_metric_impacts_use_known_metrics (test_engine.ContentTests.test_all_metric_impacts_use_known_metrics) ... ok
+test_answer_texts_are_unique_within_each_question (test_engine.ContentTests.test_answer_texts_are_unique_within_each_question) ... ok
+test_every_question_has_exactly_one_correct_choice (test_engine.ContentTests.test_every_question_has_exactly_one_correct_choice) ... ok
+test_every_round_has_a_student_reflection_and_answer (test_engine.ContentTests.test_every_round_has_a_student_reflection_and_answer) ... ok
+test_faithful_representation_uses_paired_evidence (test_engine.ContentTests.test_faithful_representation_uses_paired_evidence) ... ok
+test_question_ids_are_unique (test_engine.ContentTests.test_question_ids_are_unique) ... ok
+test_six_rounds_cover_the_full_activity (test_engine.ContentTests.test_six_rounds_cover_the_full_activity) ... ok
+test_correct_choice_is_evaluated_and_serialized (test_engine.EngineTests.test_correct_choice_is_evaluated_and_serialized) ... ok
+test_empty_summary_is_safe (test_engine.EngineTests.test_empty_summary_is_safe) ... ok
+test_impacts_are_clamped_to_display_range (test_engine.EngineTests.test_impacts_are_clamped_to_display_range) ... ok
+test_metric_change_trace_separates_gains_and_losses (test_engine.EngineTests.test_metric_change_trace_separates_gains_and_losses) ... ok
+test_perfect_summary_is_filing_ready (test_engine.EngineTests.test_perfect_summary_is_filing_ready) ... ok
+test_malformed_snapshots_are_rejected (test_progress.ProgressSnapshotTests.test_malformed_snapshots_are_rejected) ... ok
+test_mid_activity_snapshot_restores_results_and_current_choice (test_progress.ProgressSnapshotTests.test_mid_activity_snapshot_restores_results_and_current_choice) ... ok
+test_start_over_replaces_prior_progress (test_progress.ProgressSnapshotTests.test_start_over_replaces_prior_progress) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 3.281s
+
+OK

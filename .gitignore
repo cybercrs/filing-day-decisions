@@ -5,3 +5,7 @@ __pycache__/
 .pytest_cache/
 .streamlit/secrets.toml
 
+
+browser/dist/
+browser/test-results/
+browser/test-results-output.log

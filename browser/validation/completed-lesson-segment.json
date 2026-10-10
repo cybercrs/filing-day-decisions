@@ -1,0 +1,155 @@
+{
+  "url": "http://127.0.0.1:40301",
+  "transport": "actual local static stlite/Wasm; external requests blocked",
+  "checks": [
+    {
+      "name": "Actual stlite/Streamlit/Pyodide runtime and initial navigation",
+      "status": "passed"
+    },
+    {
+      "name": "Read-only repeat review leaves progress, answers and scores unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Review refresh, bookmark and future-view rejection preserve canonical work",
+      "status": "passed"
+    },
+    {
+      "name": "Read-only repeat review leaves progress, answers and scores unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Read-only repeat review leaves progress, answers and scores unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Read-only repeat review leaves progress, answers and scores unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Read-only repeat review leaves progress, answers and scores unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Read-only repeat review leaves progress, answers and scores unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Read-only repeat review leaves progress, answers and scores unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Six rounds, 19 decisions, wrong-answer scoring and reveal discipline",
+      "status": "passed"
+    },
+    {
+      "name": "Complete lesson, every reached review page, keyboard focus and refresh",
+      "status": "passed"
+    },
+    {
+      "name": "Walkthrough stopped",
+      "status": "failed",
+      "error": "Traceback (most recent call last):\n  File \"/workspace/filing-day-decisions/browser/test_browser.py\", line 290, in main\n    lesson(h)\n  File \"/workspace/filing-day-decisions/browser/test_browser.py\", line 247, in lesson\n    h.finish(len(ROUNDS)+1,1,'Start over',False)\n  File \"/workspace/filing-day-decisions/browser/test_browser.py\", line 199, in finish\n    self.page.reload(wait_until='domcontentloaded');self.loaded();self.view(start)\n                                                    ^^^^^^^^^^^^^\n  File \"/workspace/filing-day-decisions/browser/test_browser.py\", line 42, in loaded\n    self.page.get_by_role('button', name='Back', exact=True).wait_for(timeout=120000)\n  File \"/workspace/.cloud-setup/venvs/main/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 20539, in wait_for\n    self._sync(\n  File \"/workspace/.cloud-setup/venvs/main/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/workspace/.cloud-setup/venvs/main/lib/python3.12/site-packages/playwright/_impl/_locator.py\", line 748, in wait_for\n    await self._frame.wait_for_selector(\n  File \"/workspace/.cloud-setup/venvs/main/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 394, in wait_for_selector\n    await self._channel.send(\n  File \"/workspace/.cloud-setup/venvs/main/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/.cloud-setup/venvs/main/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Locator.wait_for: Timeout 120000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Back\", exact=True) to be visible\n\n"
+    }
+  ],
+  "page_errors": [],
+  "console_errors": [],
+  "external_requests": [],
+  "runtime": {
+    "python": "3.13.2",
+    "streamlit": "1.57.0",
+    "pyodide": "0.29.3"
+  },
+  "initial_render_seconds": 31.01,
+  "navigation_layout": {
+    "desktop": [
+      {
+        "x": 1024,
+        "y": 83.1875,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 1076,
+        "y": 83.1875,
+        "width": 44,
+        "height": 44
+      }
+    ]
+  },
+  "completion_bookmark": "http://127.0.0.1:40301/?progress=eNrFzjkOQkEMA9C7uHYxZhb4ucpoKqCgAn0WISHuzpCIM9C8NLHlF_aw3hM12MU03bjZLW51m7t1d-7iKsWJtCKuyCsKFA2KCkWHviWDOMBu6_1InGCVOMNybqW0qrYQF9j8INZ_z7z-Zj5gIp5zj8b7A5UKTf0&view=7",
+  "body_on_failure": "Loading Pyodide.\nMounting files.\nUnpacking archives.\nMocking some packages.\nInstalling packages.\nLoading streamlit package.\nSetting up the loggers.\nMocking some Streamlit functions for the browser environment.\nBooting up the Streamlit server.",
+  "static_requests": [
+    "/",
+    "/?progress=eNqrVkpWsoqO1VFKUbJKS8wpTtVRylSyMtBRyleyMrY0NTU0tLQ0tNBRKlCyUipS0gFisOpiuOoyJSvDWgCBUhI3&view=1",
+    "/?progress=eNqrVkpWsoqONtAxiI3VUUpRskpLzClO1VHKVLIy0FHKV7IyNjYzMTEzNTSz1FEqULJSKlLSAWKraKDqYrjqMiUrw1oA3gsTdw&view=0",
+    "/?progress=eNqrVkpWsoqONtAxiI3VUUpRskpLzClO1VHKVLIy0FHKV7IyNjYzMTEzNTSz1FEqULJSKlLSAWKraKDqYrjqMiUrw1oA3gsTdw&view=999",
+    "/?progress=eNrFzjkOQkEMA9C7uHYxZhb4ucpoKqCgAn0WISHuzpCIM9C8NLHlF_aw3hM12MU03bjZLW51m7t1d-7iKsWJtCKuyCsKFA2KCkWHviWDOMBu6_1InGCVOMNybqW0qrYQF9j8INZ_z7z-Zj5gIp5zj8b7A5UKTf0&view=7",
+    "/app.json",
+    "/bootstrap-wheels.json",
+    "/favicon.ico",
+    "/pyodide-loader.mjs",
+    "/vendor/Button-CtzCBW58-AMXk3Whn.js",
+    "/vendor/Html-B0_sFMha-DlJCdFoi.js",
+    "/vendor/IFrame-DRaylZUz-CTXRbjvJ.js",
+    "/vendor/IFrameUtil-BYTcNZ4E-B8B2FnkH.js",
+    "/vendor/Radio-DpOh-J7A-DvRLieUq.js",
+    "/vendor/WidgetLabel-CQfHGtry-udktvHE5.js",
+    "/vendor/WidgetLabelHelpIconInline-BTmzKeRa-CZ4j9Xyg.js",
+    "/vendor/assets/1b1a876c211e4f13.wasm",
+    "/vendor/assets/512f7db3dabc21be.woff2",
+    "/vendor/assets/aec331590fac9222.woff2",
+    "/vendor/iconPosition-Cpqwt3HE-C-jUvRPi.js",
+    "/vendor/index-B7jxgHEF-DSFM4mVH.js",
+    "/vendor/index-DINISCAW-DhRXH5fW.js",
+    "/vendor/index-DZZFubxH-BwjJPHKd.js",
+    "/vendor/index-Df-1Z3LJ-BbKzDPIK.js",
+    "/vendor/index-Dl4ETd_L-D2oMd1k2.js",
+    "/vendor/index-DmoOfsTG-S0rBU7b4.js",
+    "/vendor/pyodide/altair-6.0.0-py3-none-any.whl",
+    "/vendor/pyodide/anyio-4.9.0-py3-none-any.whl",
+    "/vendor/pyodide/attrs-25.2.0-py3-none-any.whl",
+    "/vendor/pyodide/cachetools-5.5.2-py3-none-any.whl",
+    "/vendor/pyodide/cramjam-2.10.0rc1-cp313-cp313-pyodide_2025_0_wasm32.whl",
+    "/vendor/pyodide/fastparquet-2024.11.0-cp313-cp313-pyodide_2025_0_wasm32.whl",
+    "/vendor/pyodide/fsspec-2025.3.2-py3-none-any.whl",
+    "/vendor/pyodide/jinja2-3.1.6-py3-none-any.whl",
+    "/vendor/pyodide/jsonschema-4.23.0-py3-none-any.whl",
+    "/vendor/pyodide/jsonschema_specifications-2024.10.1-py3-none-any.whl",
+    "/vendor/pyodide/libopenssl-1.1.1w.zip",
+    "/vendor/pyodide/markupsafe-3.0.2-cp313-cp313-pyodide_2025_0_wasm32.whl",
+    "/vendor/pyodide/micropip-0.11.0-py3-none-any.whl",
+    "/vendor/pyodide/narwhals-2.15.0-py3-none-any.whl",
+    "/vendor/pyodide/numpy-2.2.5-cp313-cp313-pyodide_2025_0_wasm32.whl",
+    "/vendor/pyodide/packaging-24.2-py3-none-any.whl",
+    "/vendor/pyodide/pandas-2.3.3-cp313-cp313-pyodide_2025_0_wasm32.whl",
+    "/vendor/pyodide/pillow-11.3.0-cp313-cp313-pyodide_2025_0_wasm32.whl",
+    "/vendor/pyodide/pyodide-lock.json",
+    "/vendor/pyodide/pyodide.asm.js",
+    "/vendor/pyodide/pyodide.asm.wasm",
+    "/vendor/pyodide/pyodide.mjs",
+    "/vendor/pyodide/pyodide_http-0.2.2-py3-none-any.whl",
+    "/vendor/pyodide/pyrsistent-0.20.0-cp313-cp313-pyodide_2025_0_wasm32.whl",
+    "/vendor/pyodide/python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+    "/vendor/pyodide/python_stdlib.zip",
+    "/vendor/pyodide/pytz-2025.2-py2.py3-none-any.whl",
+    "/vendor/pyodide/referencing-0.36.2-py3-none-any.whl",
+    "/vendor/pyodide/rpds_py-0.30.0-cp313-cp313-pyodide_2025_0_wasm32.whl",
+    "/vendor/pyodide/six-1.17.0-py2.py3-none-any.whl",
+    "/vendor/pyodide/sniffio-1.3.1-py3-none-any.whl",
+    "/vendor/pyodide/ssl-1.0.0-cp313-cp313-pyodide_2025_0_wasm32.whl",
+    "/vendor/pyodide/starlette-0.47.2-py3-none-any.whl",
+    "/vendor/pyodide/typing_extensions-4.15.0-py3-none-any.whl",
+    "/vendor/python/blinker-1.9.0-py3-none-any.whl",
+    "/vendor/python/itsdangerous-2.2.0-py3-none-any.whl",
+    "/vendor/python/protobuf-7.36.2-py3-none-any.whl",
+    "/vendor/python/python_multipart-0.0.32-py3-none-any.whl",
+    "/vendor/python/tenacity-9.2.1-py3-none-any.whl",
+    "/vendor/stlite.css",
+    "/vendor/stlite.js",
+    "/vendor/styled-components-BDZ1Vzrp-C65H8d9R.js",
+    "/vendor/useBasicWidgetState-D3zHnRUK-Dsaz4YO6.js",
+    "/vendor/wheels/stlite_lib-0.1.0-py3-none-any.whl",
+    "/vendor/wheels/streamlit-1.57.0-cp313-none-any.whl"
+  ]
+}
