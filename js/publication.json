@@ -1,8 +1,8 @@
 {
   "repository": "cybercrs/filing-day-decisions",
   "source_branch": "native/html-js",
-  "source_commit": "b2ef90c4e4dffd0d882f21e96df1694ad965ee0b",
-  "static_parent": "d75006efaab0fab9299c9bcf2f46b20ad68f5ba7",
+  "source_commit": "207e6406e507ae98a156e216de736f0e6a98bf4b",
+  "static_parent": "5197d7b11359b685c4f27a9c0527bc759ac949b2",
   "description": "Student-facing native HTML/CSS/JavaScript accounting activity",
   "path": "/js/",
   "hosted_browser_testing": "Not run; known proxy restriction respected"

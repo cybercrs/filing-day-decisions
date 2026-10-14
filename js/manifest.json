@@ -4,8 +4,8 @@
   "path": "/js/",
   "files": {
     "index.html": {
-      "bytes": 1557,
-      "sha256": "79d2d08d0fd6078c654bfb654e5ebeec6fb4f66fb06a2517362746e52283dc91"
+      "bytes": 1785,
+      "sha256": "fdd64eb18f649447f9c44c7192e9555c6d691747a4f693ae0a82ce6b53caf906"
     },
     "app.js": {
       "bytes": 11815,
@@ -32,5 +32,5 @@
       "sha256": "34949aa05e9263619a2e0f5d1b1fac232654ad46b0e062efdec61007b696aaf7"
     }
   },
-  "asset_bytes": 151400
+  "asset_bytes": 151628
 }
