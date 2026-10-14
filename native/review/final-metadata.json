@@ -1,0 +1,24 @@
+{
+  "app": "Filing Day Decisions",
+  "title": "Filing Day Decisions",
+  "icon": "\ud83d\udcd1",
+  "svg_data_icon_decoded": true,
+  "changed_runtime_assets": [
+    "index.html"
+  ],
+  "asset_bytes": 151628,
+  "cold_initialization_ms": {
+    "samples": [
+      372.39999999990687,
+      640.7000000001863,
+      565.7000000001863,
+      545.4000000003725,
+      344.89999999990687
+    ],
+    "median": 545.4000000003725,
+    "conditions": "Final icon-inclusive bundle; five cache-disabled fresh Chromium contexts on local loopback; no hosted/network speed or classroom capacity claim."
+  },
+  "page_console_errors": [],
+  "external_requests": [],
+  "runtime_python_wasm_requests": []
+}

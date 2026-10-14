@@ -4,14 +4,14 @@
   "completion_bookmark": "http://127.0.0.1:35567/filing-day-decisions/js/?progress=eJzFzjsOwjAQBNC7TD2FJzgh3qtYrgJFqqDwERLi7phdcQaat83OaF5YYLUmqrGKqTu4Bze7ozu5R3d2i6sUJ9KKuCKvKFA0KCoUHfqWNOIEu-33M7HCRmKDFU0la86ZuMD6A7H_e-X1t_IBE_HsexIH5vb-AIcSTok&view=7",
   "cold_initialization_ms": {
     "samples": [
-      1193.7999999998137,
-      948.5,
-      751.7999999998137,
-      1083.8000000002794,
-      1235.3000000002794
+      372.39999999990687,
+      640.7000000001863,
+      565.7000000001863,
+      545.4000000003725,
+      344.89999999990687
     ],
-    "median": 1083.8000000002794,
-    "conditions": "Five cache-disabled fresh Chromium contexts on local loopback; no hosted-speed or capacity claim."
+    "median": 545.4000000003725,
+    "conditions": "Final icon-inclusive bundle; five cache-disabled fresh Chromium contexts on local loopback; no hosted/network speed or classroom capacity claim."
   },
   "checks": [
     {
@@ -44,6 +44,10 @@
     },
     {
       "name": "Five local cold initializations and zero external, runtime/package, server, page-error or console-error traffic",
+      "status": "passed"
+    },
+    {
+      "name": "Final title, original embedded tab icon and metadata-only runtime change; five fresh contexts",
       "status": "passed"
     }
   ],
