@@ -1,0 +1,258 @@
+[
+  {
+    "token": "eNqrVkpWsoqO1VFKUbJKS8wpTtVRylSyMtBRygeTBUpWSuVKOkpFEEXFcEVlSlaGtQD2XRBZ",
+    "snapshot": {
+      "version": 1,
+      "page": "welcome",
+      "round_index": 0,
+      "round_submitted": false,
+      "choices": {},
+      "results": {},
+      "complete": false,
+      "order_seed": 0,
+      "revealed": []
+    }
+  },
+  {
+    "token": "eNqrVkpWsoqO1VFKUbJKS8wpTtVRylSyMtBRygeTBUpWSkVKOkAMVlQMV1SmZGVYCwD12xBU",
+    "snapshot": {
+      "version": 1,
+      "page": "round",
+      "round_index": 0,
+      "round_submitted": false,
+      "choices": {},
+      "results": {},
+      "complete": false,
+      "order_seed": 0,
+      "revealed": []
+    }
+  },
+  {
+    "token": "eNqrVkpWsoqONtAxiNWJNgSTRkAyVkcpRckqLTGnOFVHKVPJylBHKV_JykBHqUDJSqlISQeIsesqhusqA-qqBQCO0xij",
+    "snapshot": {
+      "version": 1,
+      "page": "round",
+      "round_index": 1,
+      "round_submitted": false,
+      "choices": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0
+      },
+      "results": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0
+      },
+      "complete": false,
+      "order_seed": 0,
+      "revealed": []
+    }
+  },
+  {
+    "token": "eNqrVkpWsoqONtAxiNWJNgSTRmDSGEyagElTIBmro5SiZJWWmFOcqqOUqWRlpKOUr2RloKNUoGSlVKSkA8TEmlMMN6dMycqwFgB87yFc",
+    "snapshot": {
+      "version": 1,
+      "page": "round",
+      "round_index": 2,
+      "round_submitted": false,
+      "choices": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0,
+        "relevance-predictive": 0,
+        "relevance-confirmatory": 0,
+        "relevance-materiality": 0
+      },
+      "results": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0,
+        "relevance-predictive": 0,
+        "relevance-confirmatory": 0,
+        "relevance-materiality": 0
+      },
+      "complete": false,
+      "order_seed": 0,
+      "revealed": []
+    }
+  },
+  {
+    "token": "eNqrVkpWsoqONtAxiNWJNgSTRmDSGEyagElTMGkGJs3BpAWQjNVRSlGySkvMKU7VUcpUsjLWUcpXsjLQUSpQslIqUtIBYvJNLoabXKZkZVgLAKpAKic",
+    "snapshot": {
+      "version": 1,
+      "page": "round",
+      "round_index": 3,
+      "round_submitted": false,
+      "choices": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0,
+        "relevance-predictive": 0,
+        "relevance-confirmatory": 0,
+        "relevance-materiality": 0,
+        "faithful-complete": 0,
+        "faithful-neutral": 0,
+        "faithful-error": 0
+      },
+      "results": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0,
+        "relevance-predictive": 0,
+        "relevance-confirmatory": 0,
+        "relevance-materiality": 0,
+        "faithful-complete": 0,
+        "faithful-neutral": 0,
+        "faithful-error": 0
+      },
+      "complete": false,
+      "order_seed": 0,
+      "revealed": []
+    }
+  },
+  {
+    "token": "eNq1zTsKgDAURNG9TP2KROPvbSWkED8gCIoBG3Hv6kTcgcWc7jIHOqj3RkwQb2lGc-poQUta0Zo2qXrjVNsnD4IeOrZzHAQT1AkWqBGsUGyQe7-cxu90h9rzAplqNuY",
+    "snapshot": {
+      "version": 1,
+      "page": "round",
+      "round_index": 4,
+      "round_submitted": false,
+      "choices": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0,
+        "relevance-predictive": 0,
+        "relevance-confirmatory": 0,
+        "relevance-materiality": 0,
+        "faithful-complete": 0,
+        "faithful-neutral": 0,
+        "faithful-error": 0,
+        "enhance-compare-consistent": 0,
+        "enhance-verifiable": 0,
+        "enhance-timely": 0,
+        "enhance-understandable": 0
+      },
+      "results": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0,
+        "relevance-predictive": 0,
+        "relevance-confirmatory": 0,
+        "relevance-materiality": 0,
+        "faithful-complete": 0,
+        "faithful-neutral": 0,
+        "faithful-error": 0,
+        "enhance-compare-consistent": 0,
+        "enhance-verifiable": 0,
+        "enhance-timely": 0,
+        "enhance-understandable": 0
+      },
+      "complete": false,
+      "order_seed": 0,
+      "revealed": []
+    }
+  },
+  {
+    "token": "eNq9zjsKgEAMRdG9vDrFRB0_2cowhfgBQVAcsBH3ribiEixyuvvIgQ4SgiMXKbCaqblaqF4t1Uqt1caqN7aaLWfr2Qb4WYiEHjK2cxoIE8QTFogjrBBsoPv--yR9n-wQPi8qFkDF",
+    "snapshot": {
+      "version": 1,
+      "page": "round",
+      "round_index": 5,
+      "round_submitted": false,
+      "choices": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0,
+        "relevance-predictive": 0,
+        "relevance-confirmatory": 0,
+        "relevance-materiality": 0,
+        "faithful-complete": 0,
+        "faithful-neutral": 0,
+        "faithful-error": 0,
+        "enhance-compare-consistent": 0,
+        "enhance-verifiable": 0,
+        "enhance-timely": 0,
+        "enhance-understandable": 0,
+        "assumption-monetary": 0,
+        "assumption-order": 0,
+        "assumption-periodicity": 0
+      },
+      "results": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0,
+        "relevance-predictive": 0,
+        "relevance-confirmatory": 0,
+        "relevance-materiality": 0,
+        "faithful-complete": 0,
+        "faithful-neutral": 0,
+        "faithful-error": 0,
+        "enhance-compare-consistent": 0,
+        "enhance-verifiable": 0,
+        "enhance-timely": 0,
+        "enhance-understandable": 0,
+        "assumption-monetary": 0,
+        "assumption-order": 0,
+        "assumption-periodicity": 0
+      },
+      "complete": false,
+      "order_seed": 0,
+      "revealed": []
+    }
+  },
+  {
+    "token": "eNrFjjsSQFAQBO8y8QZv_O1VXokQiCi_RLk7djmDpJOp7poDLTTGIKGRSGNiTI2ZMTcWxtJYGWu3Xtltuk736QF6gZ6gN_hEGkEHXeetFwzQXDBCg2CC3oNg_vvd8r3boTwvu4VKEQ",
+    "snapshot": {
+      "version": 1,
+      "page": "debrief",
+      "round_index": 5,
+      "round_submitted": true,
+      "choices": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0,
+        "relevance-predictive": 0,
+        "relevance-confirmatory": 0,
+        "relevance-materiality": 0,
+        "faithful-complete": 0,
+        "faithful-neutral": 0,
+        "faithful-error": 0,
+        "enhance-compare-consistent": 0,
+        "enhance-verifiable": 0,
+        "enhance-timely": 0,
+        "enhance-understandable": 0,
+        "assumption-monetary": 0,
+        "assumption-order": 0,
+        "assumption-periodicity": 0,
+        "principle-cost": 0,
+        "principle-fair": 0,
+        "principle-disclosure": 0
+      },
+      "results": {
+        "rulebook-fasb": 0,
+        "rulebook-sec": 0,
+        "rulebook-pcaob": 0,
+        "relevance-predictive": 0,
+        "relevance-confirmatory": 0,
+        "relevance-materiality": 0,
+        "faithful-complete": 0,
+        "faithful-neutral": 0,
+        "faithful-error": 0,
+        "enhance-compare-consistent": 0,
+        "enhance-verifiable": 0,
+        "enhance-timely": 0,
+        "enhance-understandable": 0,
+        "assumption-monetary": 0,
+        "assumption-order": 0,
+        "assumption-periodicity": 0,
+        "principle-cost": 0,
+        "principle-fair": 0,
+        "principle-disclosure": 0
+      },
+      "complete": true,
+      "order_seed": 0,
+      "revealed": []
+    }
+  }
+]

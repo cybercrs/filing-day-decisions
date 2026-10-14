@@ -1,0 +1,70 @@
+PASSED: Initial validation, wrong draft, readonly welcome, Forward stopping, refresh and exact Python option order
+PASSED: All six rounds and nineteen decisions, wrong-answer feedback, selective reveals, exact gauges and 18/19 completion
+PASSED: Every page readonly, no new reveals, historical gauges, repeated Back/Forward, keyboard and saved review positions
+PASSED: 1280/900/390px layouts, 44px arrows, original Start over to round one, old bookmarks and independent sessions
+PASSED: All original submitted/unsubmitted/revealed legacy links, native links, extra query values and malformed tokens
+PASSED: Two further full lesson routes: 19/19 and 0/19, including sequential gauge saturation
+PASSED: All three original debrief outcome variants and finalized branding
+PASSED: Five local cold initializations and zero external, runtime/package, server, page-error or console-error traffic
+{
+  "url": "http://127.0.0.1:35567/filing-day-decisions/js/",
+  "conditions": "Actual native Chromium at the project-prefixed /js/ path; external traffic blocked.",
+  "cold_initialization_ms": {
+    "samples": [
+      1193.7999999998137,
+      948.5,
+      751.7999999998137,
+      1083.8000000002794,
+      1235.3000000002794
+    ],
+    "median": 1083.8000000002794,
+    "conditions": "Five cache-disabled fresh Chromium contexts on local loopback; no hosted-speed or capacity claim."
+  },
+  "checks": [
+    {
+      "name": "Initial validation, wrong draft, readonly welcome, Forward stopping, refresh and exact Python option order",
+      "status": "passed"
+    },
+    {
+      "name": "All six rounds and nineteen decisions, wrong-answer feedback, selective reveals, exact gauges and 18/19 completion",
+      "status": "passed"
+    },
+    {
+      "name": "Every page readonly, no new reveals, historical gauges, repeated Back/Forward, keyboard and saved review positions",
+      "status": "passed"
+    },
+    {
+      "name": "1280/900/390px layouts, 44px arrows, original Start over to round one, old bookmarks and independent sessions",
+      "status": "passed"
+    },
+    {
+      "name": "All original submitted/unsubmitted/revealed legacy links, native links, extra query values and malformed tokens",
+      "status": "passed"
+    },
+    {
+      "name": "Two further full lesson routes: 19/19 and 0/19, including sequential gauge saturation",
+      "status": "passed"
+    },
+    {
+      "name": "All three original debrief outcome variants and finalized branding",
+      "status": "passed"
+    },
+    {
+      "name": "Five local cold initializations and zero external, runtime/package, server, page-error or console-error traffic",
+      "status": "passed"
+    }
+  ],
+  "requests": [
+    "/filing-day-decisions/js/",
+    "/filing-day-decisions/js/app.js",
+    "/filing-day-decisions/js/content.js",
+    "/filing-day-decisions/js/engine.js",
+    "/filing-day-decisions/js/original.css",
+    "/filing-day-decisions/js/shared.js",
+    "/filing-day-decisions/js/style.css"
+  ],
+  "external_requests": [],
+  "page_errors": [],
+  "console_errors": [],
+  "downloads": "Not applicable: the original Filing Day Decisions lesson defines no download or dataframe."
+}

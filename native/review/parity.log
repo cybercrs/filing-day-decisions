@@ -1,0 +1,19 @@
+✔ all 57 option outcomes equal the original Python evaluations (29.201134ms)
+✔ 80 independently generated trajectories preserve sequential clamps, baselines, metric traces and summaries (195.776582ms)
+✔ every Python option permutation is reproduced exactly, including seeds 0 and uint32 maximum (18.616642ms)
+✔ old submitted/unsubmitted/revealed snapshots and new native links remain Python-compatible (951.382099ms)
+✔ the original gates allow wrong decisions to advance and reject duplicate submissions/reveals (77.292995ms)
+✔ every older page is strictly readonly, with no new reveals or progress mutations (32.458694ms)
+✔ viewed gauges use that round baseline/results and reveal flags retain only deliberately opened answers (48.478729ms)
+✔ draft choices, option seed and current submitted frontier survive without advancing on Forward (25.423498ms)
+✔ malformed prefixes, duplicate indexes, future choices/reveals/views and unknown fields are rejected (5.850175ms)
+✔ Start over returns directly to fresh round one while copied bookmarks and independent sessions survive (13.887ms)
+✔ all original prompts/options/feedback and captured variants retain finalized app branding (20.785666ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2361.886315
