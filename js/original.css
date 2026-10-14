@@ -1,0 +1,419 @@
+:root {
+        --ud-blue: #003087;
+        --ud-red: #CE0037;
+        --ink: #17233A;
+        --muted: #5B677A;
+        --paper: #FFFFFF;
+        --mist: #E9EFF8;
+        --line: #D5DEEB;
+        --success: #177245;
+        --warning: #9A5A00;
+    }
+
+    [data-testid="stAppViewContainer"] {
+        background:
+            radial-gradient(circle at 92% 0%, rgba(206, 0, 55, 0.08), transparent 30rem),
+            linear-gradient(180deg, #F8FAFD 0%, #F3F6FB 100%);
+    }
+
+    [data-testid="stHeader"] {
+        background: rgba(248, 250, 253, 0.88);
+        border-bottom: 1px solid rgba(213, 222, 235, 0.8);
+    }
+
+    [data-testid="stMainBlockContainer"] {
+        max-width: 1120px;
+        padding-top: 3.2rem;
+        padding-bottom: 5rem;
+    }
+
+    h1, h2, h3 {
+        color: var(--ud-blue);
+        letter-spacing: -0.025em;
+    }
+
+    h1 {
+        font-size: clamp(2.2rem, 5vw, 4rem) !important;
+        line-height: 1.02 !important;
+    }
+
+    p, li, label {
+        color: var(--ink);
+    }
+
+    .hero {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(2rem, 5vw, 4.5rem);
+        border-radius: 28px;
+        color: white;
+        background: linear-gradient(135deg, #003087 0%, #001E55 100%);
+        box-shadow: 0 24px 70px rgba(0, 48, 135, 0.22);
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        width: 22rem;
+        height: 22rem;
+        right: -7rem;
+        bottom: -11rem;
+        border: 3.5rem solid rgba(206, 0, 55, 0.92);
+        border-radius: 50%;
+    }
+
+    .hero > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-kicker, .eyebrow {
+        margin: 0 0 0.8rem;
+        color: #D9E8FF;
+        font-size: 0.79rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+    }
+
+    .hero h1 {
+        max-width: 760px;
+        margin: 0;
+        color: white;
+    }
+
+    .hero-copy {
+        max-width: 690px;
+        margin: 1.4rem 0 0;
+        color: #ECF3FF;
+        font-size: 1.12rem;
+        line-height: 1.65;
+    }
+
+    .hero-rule {
+        width: 84px;
+        height: 7px;
+        margin: 1.4rem 0;
+        border-radius: 99px;
+        background: var(--ud-red);
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0 1.9rem;
+    }
+
+    .feature-card, .scenario-card, .question-card, .feedback-card,
+    .metric-card, .debrief-card, .round-nav, .reflection-card {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 10px 32px rgba(16, 38, 75, 0.07);
+    }
+
+    .feature-card {
+        min-height: 142px;
+        padding: 1.25rem;
+        border-radius: 18px;
+    }
+
+    .feature-card strong {
+        display: block;
+        margin-bottom: 0.4rem;
+        color: var(--ud-blue);
+        font-size: 1.04rem;
+    }
+
+    .feature-card span {
+        color: var(--muted);
+        line-height: 1.5;
+    }
+
+    .round-nav {
+        padding: 0.85rem 1rem;
+        border-radius: 16px;
+    }
+
+    .round-dots {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 0.45rem;
+    }
+
+    .round-dot {
+        height: 8px;
+        border-radius: 99px;
+        background: #DCE4F0;
+    }
+
+    .round-dot.done { background: var(--ud-blue); }
+    .round-dot.current { background: var(--ud-red); }
+
+    .scenario-card {
+        padding: 1.5rem 1.6rem;
+        margin: 1.1rem 0 1.35rem;
+        border-left: 7px solid var(--ud-red);
+        border-radius: 18px;
+    }
+
+    .scenario-card p { margin: 0; line-height: 1.65; }
+    .scenario-card .goal { margin-top: 0.7rem; color: var(--muted); }
+
+    .question-card {
+        padding: 1.15rem 1.25rem 0.3rem;
+        margin: 0.9rem 0 0.25rem;
+        border-radius: 16px;
+    }
+
+    .question-number {
+        margin: 0 0 0.35rem;
+        color: var(--ud-red);
+        font-size: 0.77rem;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+    }
+
+    .question-prompt {
+        margin: 0;
+        color: var(--ink);
+        font-size: 1.04rem;
+        font-weight: 720;
+        line-height: 1.5;
+    }
+
+    .disclosure-panel {
+        margin: 0.9rem 0 1rem;
+        padding: 1rem;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        background: #F8FAFD;
+    }
+
+    .disclosure-label {
+        display: block;
+        margin-bottom: 0.42rem;
+        color: var(--ud-blue);
+        font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    .disclosure-text {
+        margin: 0;
+        color: var(--ink);
+        font-weight: 520;
+        line-height: 1.65;
+    }
+
+    .fact-block {
+        margin: 0.85rem 0 0;
+        padding-top: 0.85rem;
+        border-top: 1px solid var(--line);
+    }
+
+    div[data-testid="stRadio"] {
+        padding: 0.25rem 0.15rem 1rem;
+    }
+
+    div[role="radiogroup"] label {
+        padding: 0.7rem 0.8rem;
+        border: 1px solid transparent;
+        border-radius: 12px;
+    }
+
+    div[role="radiogroup"] label:hover {
+        border-color: #B8C8DF;
+        background: #F6F9FD;
+    }
+
+    .feedback-card {
+        padding: 1.25rem 1.35rem;
+        margin: 0.85rem 0;
+        border-radius: 17px;
+    }
+
+    .feedback-card.correct { border-left: 7px solid var(--success); }
+    .feedback-card.review { border-left: 7px solid var(--warning); }
+    .feedback-label { margin: 0 0 0.35rem; font-weight: 800; }
+    .feedback-label.correct { color: var(--success); }
+    .feedback-label.review { color: var(--warning); }
+    .feedback-card p { margin: 0.35rem 0; line-height: 1.55; }
+    .concept-pill {
+        display: inline-block;
+        margin-top: 0.55rem;
+        padding: 0.3rem 0.65rem;
+        border-radius: 999px;
+        color: var(--ud-blue);
+        background: var(--mist);
+        font-size: 0.76rem;
+        font-weight: 750;
+    }
+
+    .metric-card {
+        height: 100%;
+        padding: 1rem;
+        border-radius: 15px;
+    }
+
+    .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.6rem;
+        margin-bottom: 1.35rem;
+    }
+
+    .metric-label {
+        min-height: 2.4em;
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 750;
+        line-height: 1.25;
+        text-transform: uppercase;
+    }
+
+    .metric-value {
+        margin: 0.25rem 0 0.45rem;
+        color: var(--ud-blue);
+        font-size: 1.55rem;
+        font-weight: 850;
+    }
+
+    .metric-delta {
+        margin-left: 0.28rem;
+        font-size: 0.78rem;
+        font-weight: 800;
+    }
+
+    .metric-delta.positive { color: #177245; }
+    .metric-delta.negative { color: #A62232; }
+    .metric-delta.neutral { color: var(--muted); }
+
+    .metric-track {
+        display: flex;
+        height: 7px;
+        overflow: hidden;
+        border-radius: 99px;
+        background: #E1E7F0;
+    }
+
+    .metric-fill {
+        height: 100%;
+        border-radius: 99px;
+        background: linear-gradient(90deg, var(--ud-blue), #2768B5);
+    }
+
+    .metric-segment { height: 100%; }
+    .metric-segment.carried { background: var(--ud-blue); }
+    .metric-segment.lost { background: #CE0037; }
+    .metric-segment.gained { background: #24915E; }
+
+    .metric-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem 1.1rem;
+        margin: -0.55rem 0 1.4rem;
+        color: var(--muted);
+        font-size: 0.77rem;
+        font-weight: 700;
+    }
+
+    .legend-item { display: inline-flex; align-items: center; gap: 0.35rem; }
+    .legend-swatch { width: 12px; height: 7px; border-radius: 99px; }
+    .legend-swatch.carried { background: var(--ud-blue); }
+    .legend-swatch.lost { background: #CE0037; }
+    .legend-swatch.gained { background: #24915E; }
+
+    .reflection-card {
+        padding: 1.25rem 1.35rem;
+        margin: 1.3rem 0 0.8rem;
+        border-left: 7px solid var(--ud-blue);
+        border-radius: 17px;
+    }
+
+    .reflection-card .eyebrow {
+        margin-bottom: 0.45rem;
+        color: var(--ud-blue);
+    }
+
+    .reflection-question {
+        margin: 0;
+        color: var(--ink);
+        font-size: 1.04rem;
+        font-weight: 760;
+        line-height: 1.55;
+    }
+
+    .revealed-answer {
+        padding: 1rem 1.1rem;
+        margin: 0.75rem 0 1.2rem;
+        border-left: 6px solid #24915E;
+        border-radius: 13px;
+        background: #ECF8F1;
+        color: #164E35;
+        line-height: 1.6;
+    }
+
+    .begin-spacer { height: 1rem; }
+
+    [data-testid="stHeaderActionElements"] {
+        display: none !important;
+    }
+
+    .debrief-hero {
+        padding: clamp(1.8rem, 5vw, 3.8rem);
+        border-radius: 26px;
+        color: white;
+        background: linear-gradient(135deg, #003087 0%, #001E55 75%);
+        box-shadow: 0 24px 70px rgba(0, 48, 135, 0.2);
+    }
+
+    .debrief-hero h1, .debrief-hero p { color: white; }
+    .debrief-score { color: #FFCCD9 !important; font-size: 1.1rem; font-weight: 800; }
+    .debrief-card {
+        min-height: 190px;
+        padding: 1.35rem;
+        border-radius: 18px;
+    }
+    .debrief-card h3 { margin-top: 0; }
+    .debrief-card li { margin-bottom: 0.45rem; }
+
+    .stButton > button, .stFormSubmitButton > button {
+        min-height: 3.05rem;
+        border: 0;
+        border-radius: 12px;
+        color: white;
+        background: #334155;
+        font-weight: 800;
+        box-shadow: 0 8px 18px rgba(51, 65, 85, 0.18);
+    }
+
+    .stButton > button p, .stFormSubmitButton > button p {
+        color: #FFFFFF !important;
+    }
+
+    .stButton > button:hover, .stFormSubmitButton > button:hover {
+        color: white;
+        background: #1F2937;
+        transform: translateY(-1px);
+    }
+
+    .stButton > button:focus-visible, .stFormSubmitButton > button:focus-visible {
+        outline: 3px solid #78A9E6;
+        outline-offset: 3px;
+    }
+
+    [data-testid="stAlert"] { border-radius: 13px; }
+
+    footer { visibility: hidden; }
+
+    @media (max-width: 760px) {
+        [data-testid="stMainBlockContainer"] { padding-top: 1.7rem; }
+        .feature-grid { grid-template-columns: 1fr; }
+        .feature-card { min-height: auto; }
+        .hero::after { opacity: 0.55; }
+        .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .metric-label { min-height: 0; }
+    }

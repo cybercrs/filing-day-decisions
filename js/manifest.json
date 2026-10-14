@@ -1,0 +1,36 @@
+{
+  "app": "Filing Day Decisions",
+  "description": "Student-facing native HTML/CSS/JavaScript accounting activity",
+  "path": "/js/",
+  "files": {
+    "index.html": {
+      "bytes": 1557,
+      "sha256": "79d2d08d0fd6078c654bfb654e5ebeec6fb4f66fb06a2517362746e52283dc91"
+    },
+    "app.js": {
+      "bytes": 11815,
+      "sha256": "5d825825c4322550f2b42719866bef782b24dcc3c519e37d30ef82626ffc8125"
+    },
+    "engine.js": {
+      "bytes": 11447,
+      "sha256": "4e19ed95cf75853f84b692ea1e73ae08570b5ca32cc8d0d943fccb465a2afcdf"
+    },
+    "content.js": {
+      "bytes": 107361,
+      "sha256": "b321b4d8e4017e96e21f5dd724cb21bc31b67d28fd182e7fe36450ba6dc85d38"
+    },
+    "style.css": {
+      "bytes": 2814,
+      "sha256": "d8c163781663e0c91d6e70f4345b7bdd6a182068d7b5c2641c7e423c3087382e"
+    },
+    "original.css": {
+      "bytes": 10419,
+      "sha256": "01289e36fe42ec91f3c4890cbe02e921b82cb20ddaf79298bc9ac65cb94ddddc"
+    },
+    "shared.js": {
+      "bytes": 5987,
+      "sha256": "34949aa05e9263619a2e0f5d1b1fac232654ad46b0e062efdec61007b696aaf7"
+    }
+  },
+  "asset_bytes": 151400
+}
